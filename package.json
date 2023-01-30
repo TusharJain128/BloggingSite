@@ -1,5 +1,5 @@
 {
-    "name": "src",
+    "name": "Blogging site",
     "version": "1.0.0",
     "description": "Backend cohort for Californium(Nov 2022 - Mar 2023)",
     "main": "index.js",
@@ -7,7 +7,11 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node src/index.js"
     },
-    "author": "",
+    "engines" : { 
+    "npm" : ">=8.0.0 <9.0.0",
+    "node" : ">=16.0.0 <17.0.0"
+  },
+    "author": "Tushar",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.19.0",
