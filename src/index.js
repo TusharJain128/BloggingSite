@@ -1,14 +1,13 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const route = require("./route/route");
 const app = express();
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+const dotenv = require('dotenv').config()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.json())
 
 mongoose.set('strictQuery', true);
-mongoose.connect("mongodb+srv://devendra_29:I28Cx63EjuXQjHtQ@devendra.ytysqub.mongodb.net/blog", {
+mongoose.connect(process.env.URL, {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))
@@ -16,8 +15,8 @@ mongoose.connect("mongodb+srv://devendra_29:I28Cx63EjuXQjHtQ@devendra.ytysqub.mo
 
 app.use('/',route)
 
-app.listen(process.env.PORT || 3000, function(){
-    console.log('Express app running on port '+ (process.env.PORT || 3000))
+app.listen(process.env.PORT , function(){
+    console.log('Express app running on port '+ (process.env.PORT))
 })
 
 

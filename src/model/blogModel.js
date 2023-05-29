@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
-const blogModel = new mongoose.Schema({
+const blogSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -31,6 +31,6 @@ const blogModel = new mongoose.Schema({
         type: Boolean,
         default: false
     }
-}, { timestamp: true })
+}, { timestamps: true })
 
-module.exports = mongoose.model("blogModel", blogModel) 
+module.exports = mongoose.model("blogModel", blogSchema) 
